@@ -32,7 +32,7 @@ router.post(
   }),
 );
 
-// Log out
+// Log out API route will delete the token cookie from res, and return JSON
 router.delete(
   '/',
   (_req, res) => {
