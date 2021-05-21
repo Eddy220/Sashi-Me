@@ -61,6 +61,16 @@ export const signup = (user) => async (dispatch) => {
   return response;
 };
 
+// logout thunk action hits logout backend route, after response from AJAX
+// call comes back, dispatches teh action for removing session user
+export const logout = () => async (dispatch) => {
+  const response = await csrfFetch('/api/session', {
+    method: 'DELETE',
+  });
+  dispatch(removeUser());
+  return response;
+};
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
