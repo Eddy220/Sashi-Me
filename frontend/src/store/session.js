@@ -33,7 +33,7 @@ export const login = (user) => async (dispatch) => {
   dispatch(setUser(data.user));
   return response;
 };
-// test
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
