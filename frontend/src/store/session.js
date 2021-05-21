@@ -43,6 +43,24 @@ export const restoreUser = () => async dispatch => {
   return response;
 };
 
+// signup thunk action that hits signup backend route with inputs
+// after response comes back, parses, dispatches action for setting
+// user to user in body's reponse
+export const signup = (user) => async (dispatch) => {
+  const { username, email, password } = user;
+  const response = await csrfFetch("/api/users", {
+    method: "POST",
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+    }),
+  });
+  const data = await response.json();
+  dispatch(setUser(data.user));
+  return response;
+};
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
