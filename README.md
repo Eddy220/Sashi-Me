@@ -1,3 +1,3 @@
 # Sashi-Me
 
-![image](files/Users/eddy/Desktop/Sashi-Me)
+![image](Sashi-Me-Database-Schema-Diagram.png)
