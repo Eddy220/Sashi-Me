@@ -1,3 +1,3 @@
 # Sashi-Me
 
-![image](files/Users/jzhang/Desktop/Sashi-Me)
+![image](files/Users/eddy/Desktop/Sashi-Me)
