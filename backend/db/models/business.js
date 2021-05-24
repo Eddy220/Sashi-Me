@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     Business.belongsTo(models.User, { foreignKey: 'owner_id'})
     Business.hasMany(models.Review, { foreignKey: 'business_id'})
     Business.hasMany(models.Image, { foreignKey: 'business_id'})
+    // Business.belongsToMany(models.User, { foreignKey: 'owner_id'})
   };
   return Business;
 };
