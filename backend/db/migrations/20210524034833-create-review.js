@@ -11,6 +11,7 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'Users' },
       },
       comment: {
         type: Sequelize.STRING,
@@ -22,6 +23,7 @@ module.exports = {
       business_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'Businesses' }
       },
       createdAt: {
         allowNull: false,
