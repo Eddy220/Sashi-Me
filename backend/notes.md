@@ -1,3 +1,47 @@
+// migrations - createuser
+'use strict';
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('Users', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      username: {
+        type: Sequelize.STRING(30),
+        allowNull: false,
+        unique: true,
+      },
+      email: {
+        type: Sequelize.STRING(256),
+        allowNull: false,
+        unique: true,
+      },
+      hashedPassword: {
+        type: Sequelize.STRING.BINARY,
+        allowNull: false,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
+      }
+    });
+  },
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('Users');
+  }
+};
+
+
+// models.user
 "use strict";
 const bcrypt = require('bcryptjs');
 const { Validator } = require("sequelize");
@@ -98,4 +142,39 @@ module.exports = (sequelize, DataTypes) => {
   // hashes password using bcrpyt and creates a user with user,email,hashpass, returning created user
 
   return User;
+};
+
+
+// seeders demo-user
+'use strict';
+const faker = require('faker');
+const bcrypt = require('bcryptjs');
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.bulkInsert('Users', [
+      {
+        email: 'demo@user.io',
+        username: 'Demo-lition',
+        hashedPassword: bcrypt.hashSync('password'),
+      },
+      {
+        email: faker.internet.email(),
+        username: 'FakeUser1',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+      },
+      {
+        email: faker.internet.email(),
+        username: 'FakeUser2',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+      },
+    ], {});
+  },
+
+  down: (queryInterface, Sequelize) => {
+    const Op = Sequelize.Op;
+    return queryInterface.bulkDelete('Users', {
+      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
+    }, {});
+  }
 };
