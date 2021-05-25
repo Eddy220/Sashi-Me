@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { Business, Review, Image } = require('../../db/models/');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-
+const { requireAuth } = require("../../utils/auth");
 const router = express.Router();
 
 const validateBusiness = [
@@ -24,6 +24,11 @@ router.get('/:id', asyncHandler(async(req, res) => {
   return res.json(business)
 }))
 
-
+// CRUD: create a business, how exciting!
+router.post('/', asyncHandler(async(req, res) => {
+  const { name, owner_id, address, city, state, phone_number, business_website} = req.body
+  const businessCreate = await Business.create({ name:name, owner_id: owner_id, address:address, city:city, state:state, phone_number:phone_number, business_website:business_website })
+  return res.json({ businessCreate })
+}))
 
 module.exports = router;
