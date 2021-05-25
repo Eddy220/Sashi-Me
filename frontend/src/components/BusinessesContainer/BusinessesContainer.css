@@ -1,0 +1,7 @@
+.businesses {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  color: red;
+  background: blue;
+}

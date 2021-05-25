@@ -1,1 +1,9 @@
 /* TODO Add site wide styles */
+.containers-div {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+
+.business-list{
+  grid-area: business;
+}

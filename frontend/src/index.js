@@ -8,7 +8,10 @@ import { ModalProvider } from "./context/Modal";
 
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
+import { combineReducers } from 'redux';
 import * as sessionActions from "./store/session";
+import sessionReducer from './store/session';
+import businessReducer, * as businessActions from './store/businesses';
 
 const store = configureStore();
 
@@ -18,6 +21,7 @@ if (process.env.NODE_ENV !== "production") {
   window.csrfFetch = csrfFetch;
   window.store = store;
   window.sessionActions = sessionActions;
+  window.businessActions = businessActions;
 }
 
 function Root() {

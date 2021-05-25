@@ -7,9 +7,9 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { requireAuth } = require("../../utils/auth");
 const router = express.Router();
 
-const validateBusiness = [
-  check('')
-]
+// const validateBusiness = [
+//   check('')
+// ]
 
 // CRUD: read all businesses
 router.get('/', asyncHandler(async(req, res) => {
