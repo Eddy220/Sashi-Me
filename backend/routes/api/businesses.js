@@ -31,4 +31,27 @@ router.post('/', asyncHandler(async(req, res) => {
   return res.json({ businessCreate })
 }))
 
+// CRUD: update a business by id
+router.put('/:id', asyncHandler(async(req, res) => {
+  const businessId = parseInt(req.params.id)
+  const business = await Business.findByPk(businessId)
+
+  if (business) {
+    const { name, owner_id, address, city, state, phone_number, business_website } = req.body
+    const businessUpdate = await business.update({ name:name, owner_id: owner_id, address:address, city:city, state:state, phone_number:phone_number, business_website:business_website })
+    return res.json({ businessUpdate })
+  }
+}))
+
+// CRUD: delete a business by id
+router.delete('/:id', asyncHandler(async(req,res) => {
+  const businessId = parseInt(req.params.id)
+  const business = await Business.findByPk(businessId)
+
+  if (business) {
+    await business.destroy();
+    return res.json()
+  }
+}))
+
 module.exports = router;
