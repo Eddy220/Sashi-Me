@@ -1,7 +1,27 @@
 .businesses {
   display: flex;
   justify-content: center;
-  border: 1px solid black;
-  color: red;
-  background: blue;
+  border: 2px solid black;
+  color: #CE4257;
+  font-weight: bold;
+}
+
+.businessContainer {
+  border: 2px solid black;
+  margin: 50px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.businessName {
+  display: flex;
+  align-content: space-between;
+  width: 50%;
+}
+
+.businessAddress {
+  display: flex;
+  width: 50%;
 }

@@ -14,18 +14,24 @@ const BusinessesContainer = () => {
   }, [dispatch]);
 
   return (
-    <div className='businesses'> Check out these sushi spots!
-      <ul>
+    <div className='businesses'>
+      <div className='outerContainer'>
         {businesses.map(business =>
           <p key={business.name}>
-            <div>
-            {business.name}
-
+            <div className='businessContainer'>
+              <div className='businessName'>
+                {business.name}
+              </div>
+              <div>
+                {business.phone_number}
+              </div>
+              <div className='businessAddress'>
+                {business.address}
+              </div>
             </div>
-            {business.address}
           </p>
           )}
-      </ul>
+      </div>
     </div>
   )
 }
