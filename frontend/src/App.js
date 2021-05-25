@@ -5,6 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import BusinessesContainer from "./components/BusinessesContainer/BusinessesContainer.js";
+import SplashPage from "./components/SplashPage/SplashPage.js";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +25,9 @@ function App() {
           </Route>
           <Route path='/businesses'>
             <BusinessesContainer/>
+          </Route>
+          <Route path='/'>
+            <SplashPage/>
           </Route>
         </Switch>
       )}

@@ -1,0 +1,12 @@
+.splashPageImage {
+  background-image: url('https://animefanatika.co.za/afwp/wp-content/uploads/2015/03/000-01-sushi.jpg');
+  display: flex;
+  justify-content: space-evenly;
+  height: 50%;
+  width: auto;
+  border: 1px solid black;
+}
+
+/* body {
+  background-image: url('https://animefanatika.co.za/afwp/wp-content/uploads/2015/03/000-01-sushi.jpg')
+} */

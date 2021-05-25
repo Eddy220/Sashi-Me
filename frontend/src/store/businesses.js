@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 // Define Action Types as Constants
 const SET_BUSINESSES = 'businesses/SET_BUSINESSES';
 
@@ -9,7 +11,7 @@ const setBusinesses = businesses => ({
 
 // Define Thunks
 export const getBusinesses = () => async (dispatch) => {
-  const res = await fetch('/api/businesses');
+  const res = await csrfFetch('/api/businesses');
   const businesses = await res.json();
   // console.log(businesses)
   dispatch(setBusinesses(businesses));

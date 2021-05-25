@@ -4,15 +4,17 @@
   border: 2px solid black;
   color: #CE4257;
   font-weight: bold;
+  background-color: #fca4a4;
 }
 
 .businessContainer {
   border: 2px solid black;
-  margin: 50px;
+  margin: 45px;
   width: 300px;
   display: flex;
   flex-direction: column;
   align-content: space-around;
+  background-color: white;
 }
 
 .businessName {
