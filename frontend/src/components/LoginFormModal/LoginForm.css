@@ -2,6 +2,23 @@
   height: 50%;
 }
 
+#modal-content {
+  background-color: #fca4a4;
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.loginSubmit {
+  display: flex;
+  justify-content: center;
+  margin-left:150px;
+}
+
 /* turned into Modal */
 /* .formContainer {
   width: 100%;

@@ -7,3 +7,13 @@
   padding: 10px;
   background-color: #fca4a4;
 }
+
+.profileButton {
+  display: flex;
+  justify-content: flex-end;
+  height: 50%;
+}
+
+.li-logout {
+  width: 50%;
+}

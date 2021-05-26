@@ -3,10 +3,12 @@
   display: flex;
   justify-content: space-evenly;
   height: 50%;
-  width: auto;
+  width: 100%;
   border: 1px solid black;
+  background-repeat:no-repeat;
+  background-size: cover;
 }
-
-/* body {
-  background-image: url('https://animefanatika.co.za/afwp/wp-content/uploads/2015/03/000-01-sushi.jpg')
-} */
+/*
+body {
+  overflow-x:hidden;
+  } */

@@ -28,6 +28,7 @@ function Navigation({ isLoaded }){
     <ul>
       <div className='navBar'>
         <NavLink exact to="/" >Home</NavLink>
+        <NavLink exact to="/create">Create a business!</NavLink>
         <NavLink to="/businesses">Hungry?</NavLink>
         {isLoaded && sessionLinks}
       </div>

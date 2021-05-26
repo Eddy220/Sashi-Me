@@ -23,13 +23,13 @@ function LoginForm() {
 
   // renders form with controlled input for user login credential and pass
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='loginForm' onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
+      <label className='inputForm'>
         Username or Email
         <input
           type="text"
@@ -38,7 +38,7 @@ function LoginForm() {
           required
         />
       </label>
-      <label>
+      <label className='inputForm'>
         Password
         <input
           type="password"
@@ -47,7 +47,7 @@ function LoginForm() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button className='loginSubmit' type="submit">Log In</button>
     </form>
   );
 }

@@ -1,7 +1,7 @@
 .businesses {
   display: flex;
   justify-content: center;
-  border: 2px solid black;
+  border: 1px solid black;
   color: #CE4257;
   font-weight: bold;
   background-color: #fca4a4;
