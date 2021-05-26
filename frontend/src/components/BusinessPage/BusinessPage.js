@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneBusiness, getBusinesses } from '../../store/businesses';
 import { useParams } from 'react-router-dom';
-import './BusinessPage.css'
+import './BusinessPage.css';
+import Reviews from '../ReviewsContainer/Reviews.js';
 
 const BusinessPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const business = useSelector((state) => (state.businesses))
-  console.log(business)
+  console.log(id)
 
   useEffect(() => {
     dispatch(getBusinesses())
@@ -37,6 +38,7 @@ const BusinessPage = () => {
         <div className='right'>
           {business[id].business_website}
         </div>
+        <Reviews id={id}/>
       </div>
     </div>
     }

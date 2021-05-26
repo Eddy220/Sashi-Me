@@ -8,7 +8,7 @@ const router = express.Router();
 
 // CRUD: read all reviews
 router.get('/', asyncHandler(async(req,res) => {
-  const reviews = await Review.findAll({ include: Business });
+  const reviews = await Review.findAll();
   return res.json(reviews)
 }))
 

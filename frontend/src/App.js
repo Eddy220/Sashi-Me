@@ -8,6 +8,7 @@ import BusinessesContainer from "./components/BusinessesContainer/BusinessesCont
 import SplashPage from "./components/SplashPage/SplashPage.js";
 import CreateBusiness from "./components/CreateBusiness/CreateBusiness.js";
 import BusinessPage from "./components/BusinessPage/BusinessPage.js";
+// import Reviews from "./components/ReviewsContainer/Reviews";
 
 
 function App() {

@@ -21,6 +21,7 @@ const oneBusiness = business => ({
   business
 })
 
+
 // Define Thunks
 export const getBusinesses = () => async (dispatch) => {
   const res = await csrfFetch('/api/businesses');
@@ -47,6 +48,20 @@ export const createBusiness = (data) => async (dispatch) => {
     const business = await res.json();
     dispatch(addOneBusiness(business));
     return business;
+  }
+}
+
+export const editBusiness = (data) => async dispatch => {
+  const res = await csrfFetch(`/api/businesses/${data.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  if (res.ok) {
+    const updatedBusiness = await res.json();
+    dispatch(addOneBusiness(updatedBusiness));
   }
 }
 
