@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation";
 import BusinessesContainer from "./components/BusinessesContainer/BusinessesContainer.js";
 import SplashPage from "./components/SplashPage/SplashPage.js";
 import CreateBusiness from "./components/CreateBusiness/CreateBusiness.js";
-
+import BusinessPage from "./components/BusinessPage/BusinessPage.js";
 
 
 function App() {
@@ -25,8 +25,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/businesses'>
+          <Route exact path='/businesses'>
             <BusinessesContainer/>
+          </Route>
+          <Route exact path='/businesses/:id'>
+            <BusinessPage/>
           </Route>
           <Route exact path='/'>
             <SplashPage/>

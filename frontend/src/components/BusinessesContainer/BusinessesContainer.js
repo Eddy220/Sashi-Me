@@ -2,6 +2,7 @@ import './BusinessesContainer.css';
 import { useEffect } from 'react'
 import { getBusinesses } from '../../store/businesses';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const BusinessesContainer = () => {
   // Declare variables from hooks
@@ -18,7 +19,7 @@ const BusinessesContainer = () => {
       <div className='outerContainer'>
         {businesses.map(business =>
           <p key={business.name}>
-            <a href={`/businesses/${business.id}`}>
+            <Link to={`/businesses/${business.id}`}>
             <div className='businessContainer'>
               <div className='businessName'>
                 {business.name}
@@ -30,7 +31,7 @@ const BusinessesContainer = () => {
                 {business.address}
               </div>
             </div>
-            </a>
+            </Link>
           </p>
           )}
       </div>

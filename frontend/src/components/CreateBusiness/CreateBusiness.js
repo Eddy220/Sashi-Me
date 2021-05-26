@@ -71,7 +71,7 @@ const CreateBusiness = () => {
   return(
     <div className='create-container'>
       <form className='createForm' onSubmit={handleSubmit}>
-        <label className ='labels'> Name of Restaurant:
+        <label className ='labels'> Restaurant Name:
           <input type='textarea' onChange={updateName}/>
         </label>
         <label className ='labels'> Street Address:
@@ -93,38 +93,6 @@ const CreateBusiness = () => {
         <button className ='labelsBtn' type='button' onClick={handleCancelClick}>Cancel</button>
       </form>
     </div>
-//     <div className=‘containers-div’>
-//        im a div
-//        <form onSubmit={handleSubmit}>
-//             <input
-//             type=‘textarea’
-//             placeholder=‘Who is Playing’
-//             required
-//             value={description}
-//             onChange={updateDescription}
-//             />
-//             <input
-//             type=‘date’
-//             // placeholder=‘when is your event’
-//             required
-//             value={date}
-//             onChange={updateDate}
-//             />
-//             <select onChange={updateGenre} value={genre}> What Genre is your Event?
-//                 {genres.map(genre =>
-//                     <option key={genre.id} value={genre.id}>
-//                         {genre.name}
-//                     </option>
-//                 )}
-//             </select>
-//                 <button type=‘submit’>
-//                     Create your event
-//                 </button>
-//                 <div>
-//                     attending list
-//                 </div>
-//         </form>
-//     </div>
 )
 
 }

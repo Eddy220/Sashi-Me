@@ -78,10 +78,10 @@ const businessReducer = (state = initialState, action) => {
         }
       }
     }
-    case ONE_BUSINESS:
-      const singleState = {...state};
-      singleState[action.business.id] = action.business;
-      return singleState;
+    // case ONE_BUSINESS:
+    //   const singleState = {...state};
+    //   singleState[action.business.id] = action.business;
+    //   return singleState;
     default:
       return state;
   }
