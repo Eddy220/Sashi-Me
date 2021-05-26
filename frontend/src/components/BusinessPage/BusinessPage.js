@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneBusiness, getBusinesses } from '../../store/businesses';
 import { useParams } from 'react-router-dom';
+import './BusinessPage.css'
 
 const BusinessPage = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const BusinessPage = () => {
     { business[id] &&                 // won't run unless businesses[id] is true
       <div className='business-page'>
       <div className='business-page-container'>
-        <div>
+        <div className ='businessName'>
           {business[id].name}
         </div>
         <div>
@@ -30,10 +31,10 @@ const BusinessPage = () => {
         <div>
           {business[id].state}
         </div>
-        <div>
+        <div className='right'>
           {business[id].phone_number}
         </div>
-        <div>
+        <div className='right'>
           {business[id].business_website}
         </div>
       </div>
