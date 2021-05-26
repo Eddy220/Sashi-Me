@@ -4,10 +4,24 @@
   display: flex;
   align-content: center;
   margin-top: 25px;
+  justify-content: center;
 }
 
 .createForm {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 25px;
+  margin: 10px;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelsBtn {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  margin: auto;
 }

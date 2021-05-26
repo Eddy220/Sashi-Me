@@ -18,6 +18,7 @@ const BusinessesContainer = () => {
       <div className='outerContainer'>
         {businesses.map(business =>
           <p key={business.name}>
+            <a href={`/businesses/${business.id}`}>
             <div className='businessContainer'>
               <div className='businessName'>
                 {business.name}
@@ -29,6 +30,7 @@ const BusinessesContainer = () => {
                 {business.address}
               </div>
             </div>
+            </a>
           </p>
           )}
       </div>

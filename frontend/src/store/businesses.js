@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 // Define Action Types as Constants
 const SET_BUSINESSES = 'businesses/SET_BUSINESSES';
 const ADD_ONE = 'businesses/ADD_ONE'
+const ONE_BUSINESS = 'busnesses/ONE_BUSINESS'
 
 // Define Action Creators
 const setBusinesses = businesses => ({
@@ -15,12 +16,23 @@ const addOneBusiness = business => ({
   business
 })
 
+const oneBusiness = business => ({
+  type: ONE_BUSINESS,
+  business
+})
+
 // Define Thunks
 export const getBusinesses = () => async (dispatch) => {
   const res = await csrfFetch('/api/businesses');
   const businesses = await res.json();
   // console.log(businesses)
   dispatch(setBusinesses(businesses));
+}
+
+export const getOneBusiness = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/businesses/${id}`);
+  const business = await res.json();
+  dispatch(oneBusiness(business));
 }
 
 export const createBusiness = (data) => async (dispatch) => {
@@ -58,9 +70,6 @@ const businessReducer = (state = initialState, action) => {
         }
         return newState;
       }
-      else {
-        newState = {hello:'hello'}
-      }
       return {
         ...state,
         [action.business.id]: {
@@ -69,6 +78,10 @@ const businessReducer = (state = initialState, action) => {
         }
       }
     }
+    case ONE_BUSINESS:
+      const singleState = {...state};
+      singleState[action.business.id] = action.business;
+      return singleState;
     default:
       return state;
   }

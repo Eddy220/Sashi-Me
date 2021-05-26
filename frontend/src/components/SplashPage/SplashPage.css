@@ -8,6 +8,30 @@
   background-repeat:no-repeat;
   background-size: cover;
 }
+
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  height: 30px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: .5px;
+}
+
+.searchBtn {
+  height: 30px;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+.picture {
+  height: 20px;
+  width: 20px;
+}
+
 /*
 body {
   overflow-x:hidden;

@@ -71,26 +71,26 @@ const CreateBusiness = () => {
   return(
     <div className='create-container'>
       <form className='createForm' onSubmit={handleSubmit}>
-        <label> Name of Restaurant:
+        <label className ='labels'> Name of Restaurant:
           <input type='textarea' onChange={updateName}/>
         </label>
-        <label> Street Address:
+        <label className ='labels'> Street Address:
           <input type='textarea' onChange={updateAddress}/>
         </label>
-        <label> City:
+        <label className ='labels'> City:
           <input type='textarea' onChange={updateCity}/>
         </label>
-        <label> State, Zipcode:
+        <label className ='labels'> State, Zipcode:
           <input type='textarea' onChange={updateState}/>
         </label>
-        <label> Phone Number:
+        <label className ='labels'> Phone Number:
           <input type='textarea' onChange={updatePhoneNumber}/>
         </label>
-        <label> Website:
+        <label className ='labels'> Website:
           <input type='textarea' onChange={updateBusinessWebsite}/>
         </label>
-        <button type='submit'>Open your restaurant!</button>
-        <button type='button' onClick={handleCancelClick}>Cancel</button>
+        <button className ='labelsBtn' type='submit'>Open your restaurant!</button>
+        <button className ='labelsBtn' type='button' onClick={handleCancelClick}>Cancel</button>
       </form>
     </div>
 //     <div className=‘containers-div’>
