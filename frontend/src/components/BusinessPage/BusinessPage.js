@@ -14,7 +14,9 @@ const BusinessPage = () => {
   }, [dispatch])
 
   return (
-    <div className='business-page'>
+    <>
+    { business[id] &&                 // won't run unless businesses[id] is true
+      <div className='business-page'>
       <div className='business-page-container'>
         <div>
           {business[id].name}
@@ -36,6 +38,8 @@ const BusinessPage = () => {
         </div>
       </div>
     </div>
+    }
+    </>
   )
 }
 
