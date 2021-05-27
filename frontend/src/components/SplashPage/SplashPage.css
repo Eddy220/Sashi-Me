@@ -32,6 +32,17 @@
   width: 20px;
 }
 
+.logo {
+  height: 15%;
+  width: 15%;
+  margin-top: -25px
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;;
+}
+
 /*
 body {
   overflow-x:hidden;
