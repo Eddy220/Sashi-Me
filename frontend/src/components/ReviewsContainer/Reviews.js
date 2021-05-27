@@ -68,6 +68,7 @@ const Reviews = ({id}) => {
             onChange={(event) => setNewReview(event.target.value)}
             ></textarea>
           <select onChange={(event) => setNewRating(event.target.value)}>
+            <option value='0'>Give us a rating!</option>
             <option value='5'>5 ⭐️ ⭐️ ⭐️ ⭐️ ⭐️ </option>
             <option value='4'>4 ⭐️ ⭐️ ⭐️ ⭐️ </option>
             <option value='3'>3 ⭐️ ⭐️ ⭐️ </option>
