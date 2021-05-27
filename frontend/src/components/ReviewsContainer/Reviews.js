@@ -8,7 +8,9 @@ const Reviews = ({id}) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const reviews = useSelector((state) => Object.values(state.reviews))
-  const owner_id = useSelector((state) => state.session.user.id)
+  const user_id = useSelector((state) => state.session.user.id)
+  const business_id = useSelector((state) => Object.values(state.businesses))
+  console.log(business_id)
   const [comment, setNewReview] = useState('');
   const [rating, setNewRating] = useState('');
 
@@ -31,8 +33,9 @@ const Reviews = ({id}) => {
 
   const onSubmit = async(event) => {
     event.preventDefault();
+    const ratingNum = +rating;
     const payloadData = {
-      comment, rating
+      user_id, comment, rating:ratingNum, business_id
     }
 
     await dispatch(createReview(payloadData))
