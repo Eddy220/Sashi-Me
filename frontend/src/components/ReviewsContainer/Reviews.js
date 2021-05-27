@@ -2,6 +2,7 @@ import { useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviews, createReview } from '../../store/reviews';
 import { useHistory } from 'react-router-dom';
+import { getUsers } from '../../store/users';
 import './Reviews.css';
 
 const Reviews = ({id}) => {
@@ -9,6 +10,7 @@ const Reviews = ({id}) => {
   const history = useHistory();
   const reviews = useSelector((state) => Object.values(state.reviews))
   const user_id = useSelector((state) => state.session.user.id)
+  const users = useSelector(state => Object.values(state.users))
   const user = useSelector((state) => state.session.user.username)
   // const business_id = useSelector((state) => (state.businesses))
   // console.log(business_id)
@@ -30,6 +32,7 @@ const Reviews = ({id}) => {
 
   useEffect(() => {
     dispatch(getReviews())
+    dispatch(getUsers())
     console.log('After reviews renders')
   }, [dispatch])
 
@@ -49,12 +52,21 @@ const Reviews = ({id}) => {
     return review.business_id === +id
   })
 
+  console.log(users)
+  console.log(reviews)
+
   return (
     <div>
       <div className='reviewDiv'> Reviews/Ratings: </div>
         {filteredReviews.map((review) => (
           <p className='boxes' key={review}>
-            <div>{user} says:</div>
+            <div>
+            {users.map((user) => {
+             if (user.id === review.user_id) {
+              return user.username
+            }
+            })}
+            </div>
             {review.comment}
             <div>Rating: {review.rating}</div>
           </p>
