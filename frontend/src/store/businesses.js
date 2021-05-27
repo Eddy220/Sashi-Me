@@ -4,6 +4,7 @@ import { csrfFetch } from "./csrf";
 const SET_BUSINESSES = 'businesses/SET_BUSINESSES';
 const ADD_ONE = 'businesses/ADD_ONE'
 const ONE_BUSINESS = 'busnesses/ONE_BUSINESS'
+const DELETE_BUSINESS = 'businesses/DELETE_BUSINESS'
 
 // Define Action Creators
 const setBusinesses = businesses => ({
@@ -18,6 +19,11 @@ const addOneBusiness = business => ({
 
 const oneBusiness = business => ({
   type: ONE_BUSINESS,
+  business
+})
+
+const deleteOneBusiness = business=> ({
+  type: DELETE_BUSINESS,
   business
 })
 
@@ -51,17 +57,28 @@ export const createBusiness = (data) => async (dispatch) => {
   }
 }
 
-export const editBusiness = (data) => async dispatch => {
-  const res = await csrfFetch(`/api/businesses/${data.id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
+// export const editBusiness = (id) => async (dispatch) => {
+//   const res = await csrfFetch(`/api/businesses/${id}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(data)
+//   })
+//   if (res.ok) {
+//     const updatedBusiness = await res.json();
+//     dispatch(addOneBusiness(updatedBusiness));
+//   }
+// }
+
+export const deleteBusiness = (id) => async (dispatch) => {
+  const res = await csrfFetch(`api/businesses/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({id})
   })
   if (res.ok) {
-    const updatedBusiness = await res.json();
-    dispatch(addOneBusiness(updatedBusiness));
+    dispatch(deleteOneBusiness(id));
+    return res;
   }
 }
 
@@ -93,6 +110,10 @@ const businessReducer = (state = initialState, action) => {
         }
       }
     }
+    case DELETE_BUSINESS:
+      const prevState = {...state}
+      delete prevState[action.id]
+      return prevState;
     // case ONE_BUSINESS:
     //   const singleState = {...state};
     //   singleState[action.business.id] = action.business;

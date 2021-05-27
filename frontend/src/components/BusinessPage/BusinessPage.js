@@ -4,6 +4,8 @@ import { getOneBusiness, getBusinesses } from '../../store/businesses';
 import { useParams } from 'react-router-dom';
 import './BusinessPage.css';
 import Reviews from '../ReviewsContainer/Reviews.js';
+import DeleteBusiness from './DeleteBusinessPage';
+
 
 const BusinessPage = () => {
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ const BusinessPage = () => {
         <div className='right'>
           {business[id].business_website}
         </div>
+        <DeleteBusiness/>
         <Reviews id={id}/>
       </div>
     </div>
