@@ -1,0 +1,26 @@
+.signupForm {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+
+.signupLabels {
+  font-family:fantasy;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+/* .create-container {
+  border: 1px solid black;
+  background-color: #fca4a4;
+  display: flex;
+  align-content: center;
+  margin-top: 25px;
+  justify-content: center;
+} */

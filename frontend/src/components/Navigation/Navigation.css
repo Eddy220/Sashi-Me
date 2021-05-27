@@ -35,3 +35,15 @@
   border-radius: 12px;
   background:azure;
 }
+
+.logoutButton {
+  font-family:fantasy;
+  font-weight:bolder;
+  text-decoration: none;
+}
+
+.profile-dropdown {
+  font-family:fantasy;
+  font-weight:bolder;
+  font-size: 13px;
+}
