@@ -1,34 +1,43 @@
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviews, createReview } from '../../store/reviews';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './Reviews.css';
 
 const Reviews = ({id}) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const reviews = useSelector((state) => Object.values(state.reviews))
+  const owner_id = useSelector((state) => state.session.user.id)
+  const [comment, setNewReview] = useState('');
+  const [rating, setNewRating] = useState('');
+
+  // console.log(reviews)
+
+  // console.log(id)
+
+  const updateReview = (event) => {
+    setNewReview(event.target.value)
+  }
+
+  const updateRating = (event) => {
+    setNewRating(event.target.value)
+  }
 
   useEffect(() => {
     dispatch(getReviews())
     console.log('After reviews renders')
   }, [dispatch])
 
-  // console.log(reviews)
+  const onSubmit = async(event) => {
+    event.preventDefault();
+    const payloadData = {
+      comment, rating
+    }
 
-  // console.log(id)
-
-  // const onSubmit = async(event) => {
-  //   event.preventDefault();
-  //   const payloadData = {
-  //     user_id, comment, rating, business_id
-  //   }
-
-  //   const review = await dispatch(createReview(payloadData))
-  //   if(review) {
-  //     history.push('/businesses')
-  //   }
-  // }
+    await dispatch(createReview(payloadData))
+    setNewReview('');
+  }
 
   let filteredReviews = reviews.filter((review) => {
     return review.business_id === +id
@@ -44,15 +53,26 @@ const Reviews = ({id}) => {
             <div>Rating: {review.rating}</div>
           </p>
         ))}
-      {/* <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
           <textarea
-            className='newCommentArea'
-            rows='5'
-            cols='80'
-            placeHolder='New comment...'
-            value={newComment}
+            className='commentText'
+            rows='4'
+            cols='50'
+            placeHolder='Make a review...'
+            value={comment}
+            onChange={(event) => setNewReview(event.target.value)}
             ></textarea>
-      </form> */}
+          <select onChange={(event) => setNewRating(event.target.value)}>
+            <option value='5'>5 ⭐️ ⭐️ ⭐️ ⭐️ ⭐️ </option>
+            <option value='4'>4 ⭐️ ⭐️ ⭐️ ⭐️ </option>
+            <option value='3'>3 ⭐️ ⭐️ ⭐️ </option>
+            <option value='2'>2 ⭐️ ⭐️ </option>
+            <option value='1'>1 ⭐️ </option>
+          </select>
+          <button className='submitReview' type='submit'>
+            Submit
+          </button>
+      </form>
     </div>
   )
 }

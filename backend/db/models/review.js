@@ -5,10 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     comment: DataTypes.STRING,
     rating: {
       type: DataTypes.INTEGER,
-      validate: {
-        min: 1,
-        max: 5
-      },
     },
     business_id: DataTypes.INTEGER
   }, {});
