@@ -22,26 +22,28 @@ const BusinessPage = () => {
     { business[id] &&                 // won't run unless businesses[id] is true
       <div className='business-page'>
       <div className='business-page-container'>
-        <div className ='businessPageInfo'>
-          {business[id].name}
+        <div className='business-page-inner'>
+          <div className ='businessPageInfo'>
+            {business[id].name}
+          </div>
+          <div className ='businessPageInfo'>
+            {business[id].address}
+          </div>
+          <div className ='businessPageInfo'>
+            {business[id].city}
+          </div>
+          <div className ='businessPageInfo'>
+            {business[id].state}
+          </div>
+          <div className ='businessPageInfo'>
+            {business[id].phone_number}
+          </div>
+          <div className ='businessPageInfo'>
+            {business[id].business_website}
+          </div>
+          <DeleteBusiness/>
         </div>
-        <div className ='businessPageInfo'>
-          {business[id].address}
-        </div>
-        <div className ='businessPageInfo'>
-          {business[id].city}
-        </div>
-        <div className ='businessPageInfo'>
-          {business[id].state}
-        </div>
-        <div className ='businessPageInfo'>
-          {business[id].phone_number}
-        </div>
-        <div className ='businessPageInfo'>
-          {business[id].business_website}
-        </div>
-        <DeleteBusiness/>
-        <Reviews id={id}/>
+          <Reviews id={id}/>
       </div>
     </div>
     }

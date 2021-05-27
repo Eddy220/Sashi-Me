@@ -53,7 +53,7 @@ const Reviews = ({id}) => {
     <div>
       <div className='reviewDiv'> Reviews/Ratings: </div>
         {filteredReviews.map((review) => (
-          <p key={review}>
+          <p className='boxes' key={review}>
             <div>{user} says:</div>
             {review.comment}
             <div>Rating: {review.rating}</div>
@@ -68,7 +68,7 @@ const Reviews = ({id}) => {
             value={comment}
             onChange={(event) => setNewReview(event.target.value)}
             ></textarea>
-          <select onChange={(event) => setNewRating(event.target.value)}>
+          <select className='dropdown' onChange={(event) => setNewRating(event.target.value)}>
             <option value='0'>Give us a rating!</option>
             <option value='5'>5 ⭐️ ⭐️ ⭐️ ⭐️ ⭐️ </option>
             <option value='4'>4 ⭐️ ⭐️ ⭐️ ⭐️ </option>

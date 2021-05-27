@@ -18,7 +18,7 @@ function Navigation({ isLoaded }){
       <>
         <LoginFormModal />
         <form action='/signup'>
-          <button>Sign Up</button>
+          <button className='navBarBtns'>Sign Up</button>
         </form>
       </>
     );

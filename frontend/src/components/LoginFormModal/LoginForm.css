@@ -1,5 +1,12 @@
 .loginBtn {
   height: 50%;
+  font-family:fantasy;
+  font-weight: bolder;
+}
+
+.navBarBtns {
+  font-family:fantasy;
+  font-weight: bolder;
 }
 
 #modal-content {
@@ -11,12 +18,16 @@
   align-items: center;
   justify-content: center;
   margin: 10px;
+  font-family:fantasy;
+  font-weight: bolder;
 }
 
 .loginSubmit {
   display: flex;
   justify-content: center;
   margin-left:150px;
+  font-family:fantasy;
+  font-weight: bolder;
 }
 
 /* turned into Modal */
