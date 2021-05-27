@@ -23,6 +23,11 @@ const BusinessPage = () => {
       <div className='business-page'>
       <div className='business-page-container'>
         <div className='business-page-inner'>
+          <div className='sushiPicContainer'>
+            <img className='foodlogo' src='../../sushipic3.jpg'></img>
+            <img className='foodlogo' src='../../sushipic2.jpg'></img>
+            <img className='foodlogo' src='../../sushipic1.jpg'></img>
+          </div>
           <div className ='businessPageInfo'>
             {business[id].name}
           </div>
