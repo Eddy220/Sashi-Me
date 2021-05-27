@@ -24,14 +24,14 @@ const oneBusiness = business => ({
 
 // Define Thunks
 export const getBusinesses = () => async (dispatch) => {
-  const res = await csrfFetch('/api/businesses');
+  const res = await fetch('/api/businesses');
   const businesses = await res.json();
   // console.log(businesses)
   dispatch(setBusinesses(businesses));
 }
 
 export const getOneBusiness = (id) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${id}`);
+  const res = await fetch(`/api/businesses/${id}`);
   const business = await res.json();
   dispatch(oneBusiness(business));
 }
