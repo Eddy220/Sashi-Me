@@ -41,10 +41,9 @@ export const createReview = (data) => async (dispatch) => {
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
-  let newState = {};
+  let newState = {...state}
   switch(action.type) {
     case SET_REVIEWS:
-      newState = {};
       action.reviews.forEach((review) => {
         newState[review.id] = review;
       });

@@ -11,39 +11,48 @@ const Reviews = ({id}) => {
 
   useEffect(() => {
     dispatch(getReviews())
+    console.log('After reviews renders')
   }, [dispatch])
 
-  console.log(reviews)
+  // console.log(reviews)
 
-  console.log(id)
+  // console.log(id)
 
-// const onSubmit = async(event) => {
-//   event.preventDefault();
-//   const payloadData = {
-//     user_id, comment, rating, business_id
-//   }
+  // const onSubmit = async(event) => {
+  //   event.preventDefault();
+  //   const payloadData = {
+  //     user_id, comment, rating, business_id
+  //   }
 
-//   const review = await dispatch(createReview(payloadData))
-//   if(review) {
-//     history.push('/businesses')
-//   }
-// }
+  //   const review = await dispatch(createReview(payloadData))
+  //   if(review) {
+  //     history.push('/businesses')
+  //   }
+  // }
 
-
-  reviews.map((review) => {
-    if (review.business_id === id) {
-      return review
-    }
+  let filteredReviews = reviews.filter((review) => {
+    return review.business_id === +id
   })
 
   return (
     <div>
-      <div className=''> Reviews </div>
-        {reviews.map((review) => (
+      <div className='reviewDiv'> Reviews/Ratings: </div>
+        {filteredReviews.map((review) => (
           <p key={review}>
+            <div>{review.user_id}</div>
             {review.comment}
+            <div>Rating: {review.rating}</div>
           </p>
         ))}
+      {/* <form onSubmit={onSubmit}>
+          <textarea
+            className='newCommentArea'
+            rows='5'
+            cols='80'
+            placeHolder='New comment...'
+            value={newComment}
+            ></textarea>
+      </form> */}
     </div>
   )
 }

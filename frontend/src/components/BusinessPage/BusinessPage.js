@@ -9,7 +9,7 @@ const BusinessPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const business = useSelector((state) => (state.businesses))
-  console.log(id)
+  // console.log(id)
 
   useEffect(() => {
     dispatch(getBusinesses())
