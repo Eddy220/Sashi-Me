@@ -89,7 +89,7 @@ const CreateBusiness = () => {
         <label className ='labels'> Website:
           <input type='textarea' onChange={updateBusinessWebsite}/>
         </label>
-        <button className ='labelsBtn' type='submit'>Open your restaurant!</button>
+        <button className ='labelsBtn' type='submit'>Create</button>
         <button className ='labelsBtn' type='button' onClick={handleCancelClick}>Cancel</button>
       </form>
     </div>

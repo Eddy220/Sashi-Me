@@ -17,13 +17,15 @@
   background-color: white;
 }
 
-.businessName {
+.businessInfo {
   display: flex;
-  align-content: space-between;
   width: 50%;
+  font-family:fantasy;
+  font-weight:bolder;
+  text-decoration: none;
+  color:black;
 }
 
-.businessAddress {
-  display: flex;
-  width: 50%;
+.businessContainer:hover {
+  background-color:lightsalmon;
 }

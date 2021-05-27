@@ -21,13 +21,13 @@ const BusinessesContainer = () => {
           <p key={business.name}>
             <Link to={`/businesses/${business.id}`}>
             <div className='businessContainer'>
-              <div className='businessName'>
+              <div className='businessInfo'>
                 {business.name}
               </div>
-              <div>
+              <div className ='businessInfo'>
                 {business.phone_number}
               </div>
-              <div className='businessAddress'>
+              <div className='businessInfo'>
                 {business.address}
               </div>
             </div>

@@ -6,6 +6,7 @@
   margin: 25px;
   padding: 10px;
   background-color: #fca4a4;
+  border-radius: 8px;
 }
 
 .profileButton {
@@ -16,4 +17,21 @@
 
 .li-logout {
   width: 50%;
+}
+
+.noColor {
+  color:black;
+  font-size: 18px;
+  font-family:fantasy;
+  font-weight:bolder;
+  text-decoration: none;
+}
+
+.noColor:hover {
+  text-decoration: none;
+  color: #Ce4257;
+  font-size: 20px;
+  border: 2px solid #Ce4257;
+  border-radius: 12px;
+  background:azure;
 }

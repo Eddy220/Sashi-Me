@@ -17,6 +17,8 @@
 .labels {
   display: flex;
   flex-direction: column;
+  font-family:fantasy;
+  font-weight:bolder;
 }
 
 .labelsBtn {
@@ -25,4 +27,11 @@
   justify-content: center;
   margin: auto;
   margin-top: 5px;
+  font-family:fantasy;
+  font-weight:bolder;
+}
+
+.businessPageInfo {
+  font-family:fantasy;
+  font-weight:bolder;
 }
