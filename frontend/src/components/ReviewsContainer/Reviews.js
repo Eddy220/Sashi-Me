@@ -9,14 +9,16 @@ const Reviews = ({id}) => {
   const history = useHistory();
   const reviews = useSelector((state) => Object.values(state.reviews))
   const user_id = useSelector((state) => state.session.user.id)
-  const business_id = useSelector((state) => Object.values(state.businesses))
-  console.log(business_id)
+  const user = useSelector((state) => state.session.user.username)
+  // const business_id = useSelector((state) => (state.businesses))
+  // console.log(business_id)
   const [comment, setNewReview] = useState('');
   const [rating, setNewRating] = useState('');
 
   // console.log(reviews)
 
-  // console.log(id)
+  // console.log(user)
+
 
   const updateReview = (event) => {
     setNewReview(event.target.value)
@@ -32,10 +34,10 @@ const Reviews = ({id}) => {
   }, [dispatch])
 
   const onSubmit = async(event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const ratingNum = +rating;
     const payloadData = {
-      user_id, comment, rating:ratingNum, business_id
+      user_id, comment, rating:ratingNum, business_id:+id
     }
 
     await dispatch(createReview(payloadData))
@@ -51,7 +53,7 @@ const Reviews = ({id}) => {
       <div className='reviewDiv'> Reviews/Ratings: </div>
         {filteredReviews.map((review) => (
           <p key={review}>
-            <div>{review.user_id}</div>
+            <div>{user} says:</div>
             {review.comment}
             <div>Rating: {review.rating}</div>
           </p>
@@ -61,7 +63,7 @@ const Reviews = ({id}) => {
             className='commentText'
             rows='4'
             cols='50'
-            placeHolder='Make a review...'
+            placeholder='Make a review...'
             value={comment}
             onChange={(event) => setNewReview(event.target.value)}
             ></textarea>
