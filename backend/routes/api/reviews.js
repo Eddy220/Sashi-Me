@@ -15,8 +15,8 @@ router.get('/', asyncHandler(async(req,res) => {
 // CRUD: post a comment
 router.post('/', asyncHandler(async(req,res) => {
   const { user_id, comment, rating, business_id } = req.body
-  const reviewCreate = await Review.create({ user_id:user_id, comment:comment, rating:rating, business_id:business_id })
-  return res.json({ reviewCreate })
+  const createReview = await Review.create({ user_id:user_id, comment:comment, rating:rating, business_id:business_id })
+  res.json(createReview)
 }))
 
 // CRUD: Delete a comment

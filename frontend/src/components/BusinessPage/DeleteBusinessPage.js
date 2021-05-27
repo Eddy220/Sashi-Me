@@ -13,7 +13,8 @@ const DeleteBusiness = () => {
     event.preventDefault();
 
     await dispatch(deleteBusiness(id))
-    history.push('/businesses')
+    console.log('businessDeleted')
+    history.push('/')
   }
 
   return(

@@ -30,6 +30,7 @@ export const createReview = (data) => async (dispatch) => {
     },
     body: JSON.stringify(data),
   })
+
   if (res.ok) {
     const review = await res.json();
     dispatch(addOneReview(review));

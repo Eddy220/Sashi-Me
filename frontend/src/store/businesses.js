@@ -22,9 +22,9 @@ const oneBusiness = business => ({
   business
 })
 
-const deleteOneBusiness = business=> ({
+const deleteOneBusiness = businessId => ({
   type: DELETE_BUSINESS,
-  business
+  businessId
 })
 
 
@@ -71,13 +71,14 @@ export const createBusiness = (data) => async (dispatch) => {
 //   }
 // }
 
-export const deleteBusiness = (id) => async (dispatch) => {
-  const res = await csrfFetch(`api/businesses/${id}`, {
+export const deleteBusiness = (businessId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/businesses/${businessId}`, {
     method: 'DELETE',
-    body: JSON.stringify({id})
+    body: JSON.stringify({businessId})
   })
   if (res.ok) {
-    dispatch(deleteOneBusiness(id));
+    dispatch(deleteOneBusiness(businessId));
+    console.log('hello')
     return res;
   }
 }
@@ -112,7 +113,7 @@ const businessReducer = (state = initialState, action) => {
     }
     case DELETE_BUSINESS:
       const prevState = {...state}
-      delete prevState[action.id]
+      delete prevState[action.businessId]
       return prevState;
     // case ONE_BUSINESS:
     //   const singleState = {...state};

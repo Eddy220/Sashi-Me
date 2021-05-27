@@ -34,14 +34,15 @@ const Reviews = ({id}) => {
   }, [dispatch])
 
   const onSubmit = async(event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const ratingNum = +rating;
     const payloadData = {
       user_id, comment, rating:ratingNum, business_id:+id
     }
 
-    await dispatch(createReview(payloadData))
+    const newReview = await dispatch(createReview(payloadData))
     setNewReview('');
+    setNewRating('');
   }
 
   let filteredReviews = reviews.filter((review) => {

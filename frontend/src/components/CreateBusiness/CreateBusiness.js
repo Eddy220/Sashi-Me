@@ -59,7 +59,7 @@ const CreateBusiness = () => {
     const business = await dispatch(createBusiness(payloadData));
     console.log('business created', business)
     if (business) {
-      history.push(`/businesses/${business.id}`);
+      history.push(`/businesses`);
     }
   }
 
