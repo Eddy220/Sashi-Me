@@ -18,8 +18,8 @@ const DeleteBusiness = () => {
   }
 
   return(
-    <button onClick={onSubmit}>
-      Delete
+    <button className='deleteBtn' onClick={onSubmit}>
+      Delete?
     </button>
   )
 }

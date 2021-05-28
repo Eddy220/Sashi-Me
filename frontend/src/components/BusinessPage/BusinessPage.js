@@ -47,7 +47,7 @@ const BusinessPage = () => {
           <div className ='businessPageInfo'>
             {business[id].business_website}
           </div>
-          <Link to={`/businesses/${id}/edit`}>Update</Link>
+          <Link className='updateLink' to={`/businesses/${id}/edit`}>Update</Link>
           <DeleteBusiness/>
         </div>
           <Reviews id={id}/>

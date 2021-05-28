@@ -5,6 +5,8 @@
 .businessPageInfo {
   font-family:fantasy;
   font-weight:bolder;
+  display:flex;
+  justify-content: center;
 }
 
 .business-page-inner {
@@ -21,15 +23,33 @@
 }
 
 .foodLogo {
-  height: 30%;
-  width: 30%;
+  height: 18%;
+  width: 18%;
   margin-top:-40px;
   margin-bottom: 15px;
   border: 1px solid black;
 }
 
 .foodLogo:hover {
-  height: 38%;
-  width: 38%;
+  height: 23%;
+  width: 23%;
   border: 5px solid #fca4a4;
+}
+
+.updateLink {
+  color:black;
+  margin: 15px;
+  font-family:fantasy;
+  font-weight:bolder;
+  display:flex;
+  justify-content: center;
+}
+
+.deleteBtn {
+  color:black;
+  margin: 15px;
+  font-family:fantasy;
+  font-weight:bolder;
+  display:flex;
+  justify-content: center;
 }
