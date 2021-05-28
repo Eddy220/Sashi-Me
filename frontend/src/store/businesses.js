@@ -5,6 +5,7 @@ const SET_BUSINESSES = 'businesses/SET_BUSINESSES';
 const ADD_ONE = 'businesses/ADD_ONE'
 const ONE_BUSINESS = 'busnesses/ONE_BUSINESS'
 const DELETE_BUSINESS = 'businesses/DELETE_BUSINESS'
+const UPDATE_BUSINESS = 'businesses/UPDATE_BUSINESS'
 
 // Define Action Creators
 const setBusinesses = businesses => ({
@@ -27,6 +28,10 @@ const deleteOneBusiness = businessId => ({
   businessId
 })
 
+const updateBusiness = businessId => ({
+  type: UPDATE_BUSINESS,
+  businessId
+})
 
 // Define Thunks
 export const getBusinesses = () => async (dispatch) => {
@@ -57,19 +62,18 @@ export const createBusiness = (data) => async (dispatch) => {
   }
 }
 
-// export const editBusiness = (id) => async (dispatch) => {
-//   const res = await csrfFetch(`/api/businesses/${id}`, {
-//     method: 'PUT',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(data)
-//   })
-//   if (res.ok) {
-//     const updatedBusiness = await res.json();
-//     dispatch(addOneBusiness(updatedBusiness));
-//   }
-// }
+export const editBusiness = (businessId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/businesses/${businessId.businessId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(businessId)
+  })
+    const updatedBusiness = await res.json();
+    dispatch(updateBusiness(updatedBusiness.businessUpdate));
+    return updatedBusiness.businessUpdate;
+}
 
 export const deleteBusiness = (businessId) => async (dispatch) => {
   const res = await csrfFetch(`/api/businesses/${businessId}`, {
@@ -119,6 +123,20 @@ const businessReducer = (state = initialState, action) => {
     //   const singleState = {...state};
     //   singleState[action.business.id] = action.business;
     //   return singleState;
+    case UPDATE_BUSINESS:
+      // if(!state[action.business.id]) {
+        const updateState = {
+          ...state,
+          [action.businessId.id]: action.businessId
+        }
+        return updateState;
+      // return {
+      //   ...state,
+      //   [action.business.id]: {
+      //     ...state[action.business.id],
+      //     ...action.business,
+      //   }
+      // }
     default:
       return state;
   }

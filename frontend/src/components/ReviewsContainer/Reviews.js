@@ -52,20 +52,20 @@ const Reviews = ({id}) => {
     return review.business_id === +id
   })
 
-  console.log(users)
-  console.log(reviews)
+  // console.log(users)
+  // console.log(reviews)
 
   return (
     <div>
       <div className='reviewDiv'> Reviews/Ratings: </div>
         {filteredReviews.map((review) => (
           <p className='boxes' key={review}>
-            <div>
+            <div className='commentUser'>
             {users.map((user) => {
              if (user.id === review.user_id) {
               return user.username
             }
-            })}
+            })}:
             </div>
             {review.comment}
             <div>Rating: {review.rating}</div>

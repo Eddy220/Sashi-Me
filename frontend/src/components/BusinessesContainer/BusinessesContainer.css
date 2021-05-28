@@ -28,4 +28,5 @@
 
 .businessContainer:hover {
   background-color:lightsalmon;
+  border: 3px solid black;
 }

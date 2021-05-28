@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneBusiness, getBusinesses } from '../../store/businesses';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './BusinessPage.css';
 import Reviews from '../ReviewsContainer/Reviews.js';
 import DeleteBusiness from './DeleteBusinessPage';
+
 
 
 const BusinessPage = () => {
@@ -46,6 +47,7 @@ const BusinessPage = () => {
           <div className ='businessPageInfo'>
             {business[id].business_website}
           </div>
+          <Link to={`/businesses/${id}/edit`}>Update</Link>
           <DeleteBusiness/>
         </div>
           <Reviews id={id}/>

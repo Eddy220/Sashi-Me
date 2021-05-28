@@ -35,7 +35,7 @@ router.post('/', asyncHandler(async(req, res) => {
 router.put('/:id', asyncHandler(async(req, res) => {
   const businessId = parseInt(req.params.id)
   const business = await Business.findByPk(businessId)
-
+  console.log(business)
   if (business) {
     const { name, owner_id, address, city, state, phone_number, business_website } = req.body
     const businessUpdate = await business.update({ name:name, owner_id: owner_id, address:address, city:city, state:state, phone_number:phone_number, business_website:business_website })

@@ -8,6 +8,7 @@ import BusinessesContainer from "./components/BusinessesContainer/BusinessesCont
 import SplashPage from "./components/SplashPage/SplashPage.js";
 import CreateBusiness from "./components/CreateBusiness/CreateBusiness.js";
 import BusinessPage from "./components/BusinessPage/BusinessPage.js";
+import EditBusiness from "./components/EditBusinessPage/EditBusinessPage.js";
 // import Reviews from "./components/ReviewsContainer/Reviews";
 
 
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path='/businesses'>
             <BusinessesContainer/>
+          </Route>
+          <Route exact path='/businesses/:id/edit'>
+            <EditBusiness/>
           </Route>
           <Route path='/businesses/:id'>
             <BusinessPage/>
